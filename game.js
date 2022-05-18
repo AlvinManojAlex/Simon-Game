@@ -2,10 +2,17 @@ var buttonColours = ["red","blue","green","yellow"];
 var gamepattern = [];
 var userpattern = [];
 var level = 0;
+var check = 0;
 
 $("body").keypress(function () {
     nextSequence();
 });
+
+$("body").click(function () {
+    if (check == 0)
+        nextSequence();
+    check++;
+})
 
 function nextSequence() {
     $("h1").text("Level " + level);
@@ -82,5 +89,6 @@ function mistake() {
 function startover() {
     level = 0;
     gamepattern = [];
+    check = -1;
     // nextSequence();
 }
